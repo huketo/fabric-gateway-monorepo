@@ -1,0 +1,30 @@
+{
+  "name": "fabric-network",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/fabric-network",
+  "targets": {
+    "network-up": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/fabric-network",
+        "command": "bash network.sh up createChannel -c mychannel -ca"
+      }
+    },
+    "network-down": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/fabric-network",
+        "command": "bash network.sh down"
+      }
+    },
+    "deploy-chaincode": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/fabric-network",
+        "command": "bash network.sh deployCC -ccn asset-transfer-basic -ccp ../fabric-chaincode -ccl go"
+      }
+    }
+  },
+  "tags": ["hyperledger", "fabric", "shell-script"]
+}

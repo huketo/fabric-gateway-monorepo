@@ -1,0 +1,8 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "fabric-chaincode",
+	"projectType": "library",
+	"sourceRoot": "libs/fabric-chaincode",
+	"targets": {},
+	"tags": ["hyperledger", "fabric", "go"]
+}

@@ -1,8 +1,14 @@
 {
-  "name": "@fabric-gateway-monorepo/source",
+  "name": "fabric-gateway-monorepo",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "network": "npm run network:up && npm run network:chaincode",
+    "network:install": "bash scripts/install-fabric.sh",
+    "network:up": "nx run fabric-network:network-up",
+    "network:down": "nx run fabric-network:network-down",
+    "network:chaincode": "nx run fabric-network:deploy-chaincode"
+  },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^10.0.2",
