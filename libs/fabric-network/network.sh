@@ -341,6 +341,11 @@ function networkDown() {
     ${CONTAINER_CLI} network remove fabric_network
   fi
 
+  # Clear API Configs directory files
+  [[ -d ../../apps/api/src/configs/org1 ]] && rm -rf ../../apps/api/src/configs/org1
+  [[ -d ../../apps/api/src/configs/org2 ]] && rm -rf ../../apps/api/src/configs/org2
+  [[ -d ../../apps/api/src/configs/org3 ]] && rm -rf ../../apps/api/src/configs/org3
+
   COMPOSE_BASE_FILES="-f compose/${COMPOSE_FILE_BASE} -f compose/${CONTAINER_CLI}/${CONTAINER_CLI}-${COMPOSE_FILE_BASE}"
   COMPOSE_COUCH_FILES="-f compose/${COMPOSE_FILE_COUCH} -f compose/${CONTAINER_CLI}/${CONTAINER_CLI}-${COMPOSE_FILE_COUCH}"
   COMPOSE_CA_FILES="-f compose/${COMPOSE_FILE_CA} -f compose/${CONTAINER_CLI}/${CONTAINER_CLI}-${COMPOSE_FILE_CA}"

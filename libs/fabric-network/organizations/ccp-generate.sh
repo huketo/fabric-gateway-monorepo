@@ -83,9 +83,13 @@ PEERPEM=organizations/peerOrganizations/org1.example.com/tlsca/tlsca.org1.exampl
 CAPEM=organizations/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem
 O1PRIV=$(ls organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/*_sk | head -n 1 | sed 's/^organizations\///')
 
+# Copy the certificate and private key to the api config folder
+[[ -d ../../apps/api/src/configs/org1/user1 ]] || mkdir -p ../../apps/api/src/configs/org1/user1
+cp -r organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore ../../apps/api/src/configs/org1/user1/keystore
+cp -r organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts ../../apps/api/src/configs/org1/user1/signcerts
+cp -r organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/cacerts ../../apps/api/src/configs/org1/user1/cacerts
+
 echo "$(json_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org1.example.com/connection-org1.json
-echo "$(json_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM)" > ../../apps/api/configs/connection-org1.json # for api
-echo "$(json_local_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org1.example.com/local-connection-org1.json # for api
 echo "$(yaml_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org1.example.com/connection-org1.yaml
 echo "$(explorer_ca_json_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM)" > explorer/connection-profile/connection-ca-org1.json
 echo "$(explorer_json_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM $O1PRIV)" > explorer/connection-profile/connection-org1.json
@@ -98,9 +102,13 @@ PEERPEM=organizations/peerOrganizations/org2.example.com/tlsca/tlsca.org2.exampl
 CAPEM=organizations/peerOrganizations/org2.example.com/ca/ca.org2.example.com-cert.pem
 O2PRIV=$(ls organizations/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/keystore/*_sk | head -n 1 | sed 's/^organizations\///')
 
+# Copy the certificate and private key to the api config folder
+[[ -d ../../apps/api/src/configs/org2/user1 ]] || mkdir -p ../../apps/api/src/configs/org2/user1
+cp -r organizations/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/keystore ../../apps/api/src/configs/org2/user1/keystore
+cp -r organizations/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/signcerts ../../apps/api/src/configs/org2/user1/signcerts
+cp -r organizations/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/cacerts ../../apps/api/src/configs/org2/user1/cacerts
+
 echo "$(json_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org2.example.com/connection-org2.json
-echo "$(json_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM)" > ../../apps/api/configs/connection-org2.json # for api
-echo "$(json_local_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org2.example.com/local-connection-org2.json # for api
 echo "$(yaml_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org2.example.com/connection-org2.yaml
 echo "$(explorer_ca_json_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM)" > explorer/connection-profile/connection-ca-org2.json
 echo "$(explorer_json_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM $O2PRIV)" > explorer/connection-profile/connection-org2.json
@@ -113,9 +121,13 @@ PEERPEM=organizations/peerOrganizations/org3.example.com/tlsca/tlsca.org3.exampl
 CAPEM=organizations/peerOrganizations/org3.example.com/ca/ca.org3.example.com-cert.pem
 O3PRIV=$(ls organizations/peerOrganizations/org3.example.com/users/User1@org3.example.com/msp/keystore/*_sk | head -n 1 | sed 's/^organizations\///')
 
+# Copy the certificate and private key to the api config folder
+[[ -d ../../apps/api/src/configs/org3/user1 ]] || mkdir -p ../../apps/api/src/configs/org3/user1
+cp -r organizations/peerOrganizations/org3.example.com/users/User1@org3.example.com/msp/keystore ../../apps/api/src/configs/org3/user1/keystore
+cp -r organizations/peerOrganizations/org3.example.com/users/User1@org3.example.com/msp/signcerts ../../apps/api/src/configs/org3/user1/signcerts
+cp -r organizations/peerOrganizations/org3.example.com/users/User1@org3.example.com/msp/cacerts ../../apps/api/src/configs/org3/user1/cacerts
+
 echo "$(json_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org3.example.com/connection-org3.json
-echo "$(json_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM)" > ../../apps/api/configs/connection-org3.json # for api
-echo "$(json_local_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org3.example.com/local-connection-org3.json # for api
 echo "$(yaml_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org3.example.com/connection-org3.yaml
 echo "$(explorer_ca_json_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM)" > explorer/connection-profile/connection-ca-org3.json
 echo "$(explorer_json_ccp $ORG $P0PORT $P1PORT $CAPORT $PEERPEM $CAPEM $O3PRIV)" > explorer/connection-profile/connection-org3.json
